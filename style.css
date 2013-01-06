@@ -168,7 +168,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   text-decoration: none;
 }
 
-.top_level_selected, nav.no_javascript #top_level_nav > li:hover
+.top_level_selected, #top_level_nav > li:hover
 {
   border-top-left-radius:10px;
   border-top-right-radius:10px;
@@ -184,7 +184,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#485296', endColorstr='#0927a6',GradientType=0 ); /* IE6-8 */
 }
 
-.bot_level_selected, nav.no_javascript .bottom_level_nav > ul > li:hover
+.bot_level_selected, .bottom_level_nav > ul > li:hover
 {
   background: #0B0B61;
   border-top-left-radius:10px;
