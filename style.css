@@ -186,11 +186,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
 #noscript_msg
 {
   margin:auto;
-  color:white;
-  display:block;
   text-align:center;
   font-size:120%;
-  line-height:35px;
 }
 
 footer
@@ -200,4 +197,10 @@ footer
   margin: auto;
   font-size:10pt;
   text-align:center;
+}
+
+/* This makes the menu sort of work when javascript is disabled */
+nav.no_javascript > ul > li:hover div.bottom_level_nav
+{
+  display:block;
 }

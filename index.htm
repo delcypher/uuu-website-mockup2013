@@ -17,6 +17,11 @@
   {
     /* Set Default menu setup */
     uuuMenuSetBreadcrumbs('UUU','About');
+
+    /* Javascript is working so remove the special CSS
+       class that makes the menu "sort of work" in browsers
+       with Javascript disabled */
+    $("nav").removeClass("no_javascript");
   });
   </script>
         <div id="container">
@@ -28,7 +33,7 @@
             </div>
           </header>
 
-          <nav>
+          <nav class="no_javascript">
             <ul id="top_level_nav">
               <li>UUU
                 <div class="bottom_level_nav">
@@ -138,12 +143,12 @@
                 </div>
               </li>
             </ul>
-	    <div id="bottom_bar">
-      <noscript id="noscript_msg">Javascript is required for this website to function. Please enable it.</noscript>
-      </div>
+            <div id="bottom_bar"> </div>
           </nav>
 
           <section id="content">
+          <noscript id="noscript_msg">We've detected Javascript is disabled in your browser. To get the best experience using this website please enable Javascript.
+          </noscript>
           <h1>Heading</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. <a href="#dummy">link</a></p>
 
