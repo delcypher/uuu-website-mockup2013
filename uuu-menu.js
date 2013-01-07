@@ -59,6 +59,13 @@ function uuuMenuTopLevelSelect(followURL)
       $(this).unbind('mouseenter mouseleave');
       $(this).removeClass('top_level_hover');
 
+      //The Bottom level menu we just showed needs hover behaviour
+      $(this).children('div.bottom_level_nav').children('ul').children('li').each(function(index)
+      {
+        uuuMenuBotLevelAddHover.call(this);
+      }
+      );
+
       if(followURL && $(this).children('a').length != 0)
       {
         //There is no sub menu so follow link
@@ -98,17 +105,42 @@ function uuuMenuBotLevelSelect(followURL)
   {
     if($(this).get(0) == clicked.get(0))
     {
+      //Element selected
       $(this).addClass("bot_level_selected");
+
+      //Remove hover behaviour, because it's selected
+      $(this).unbind('mouseenter mouseleave');
+      $(this).removeClass('bot_level_hover');
 
       //Determine URL location from the child element
       if(followURL==true)
         window.location = $(this).children('a').attr('href');
+
     }
     else
     {
+      //Unselect element
       $(this).removeClass("bot_level_selected");
+
+      //add hover behaviour, because it's not selected
+      uuuMenuBotLevelAddHover.call(this);
     }
   });
+}
+
+/* This needs to be set to an li element in the bottom menu */
+function uuuMenuBotLevelAddHover()
+{
+  $(this).unbind("mouseenter mouseleave"); //Unbind other handlers (prevents handlers being set multiple times by this function)
+  $(this).hover(function()
+  {
+    $(this).addClass('bot_level_hover');
+  },
+  function()
+  {
+    $(this).removeClass('bot_level_hover');
+  }
+  );
 }
 
 $(document).ready(function() 
@@ -119,10 +151,16 @@ $(document).ready(function()
     uuuMenuTopLevelSelect.call($(this),true);
   });
 
-  $('#top_level_nav > li > div.bottom_level_nav > ul > li').click(function()
+  $('#top_level_nav > li > div.bottom_level_nav > ul > li').click(function(event)
   {
     //Set this and request that we follow URLs
     uuuMenuBotLevelSelect.call($(this),true);
+    /* Due to the nesting of menu elements the top level nav click can be triggered
+      by clicking on bottom level menu elements. We don't want this so we try to 
+      stop the event being propogated and ASSUME that the most nested event (i.e. this one)
+      gets called first.
+    */
+    event.stopImmediatePropagation();
   });
 
 });

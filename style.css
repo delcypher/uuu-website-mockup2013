@@ -197,11 +197,20 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   background: #580000;
 }
 
+.bot_level_hover
+{
+  background: #4A7FB3;
+}
+
 .bot_level_selected, .bottom_level_nav > ul > li:hover
 {
-  background: #0B0B61;
   border-top-left-radius:10px;
   border-top-right-radius:10px;
+}
+
+.bot_level_selected, .no_javascript .bottom_level_nav > ul > li:hover
+{
+  background: #0B0B61;
 }
 
 #noscript_msg
