@@ -52,6 +52,10 @@ function uuuMenuTopLevelSelect(followURL)
     if($(this).get(0) == clicked.get(0))
     {
       //SHOW
+      //Remove hover behaviour, because it's selected
+      $(this).unbind('mouseenter mouseleave');
+      $(this).removeClass('top_level_hover');
+
       $(this).children('div.bottom_level_nav').fadeIn();
       $(this).addClass("top_level_selected");
 
@@ -60,12 +64,24 @@ function uuuMenuTopLevelSelect(followURL)
         //There is no sub menu so follow link
         window.location = $(this).children('a').attr('href');
       }
+
     }
     else
     {
       //HIDE
       $(this).children('div.bottom_level_nav').hide();
       $(this).removeClass("top_level_selected");
+
+      //add hover behaviour, because it's not selected
+      $(this).hover(function()
+      {
+        $(this).addClass('top_level_hover');
+      },
+      function()
+      {
+        $(this).removeClass('top_level_hover');
+      }
+      );
     }
   }
   );
