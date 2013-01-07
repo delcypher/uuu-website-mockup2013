@@ -126,6 +126,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   padding: 0px 25px 0px 25px;
   line-height: 35px;
   height:35px;
+}
+
+.clickable_button
+{
   cursor: pointer;
 }
 
