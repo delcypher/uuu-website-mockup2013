@@ -12,7 +12,8 @@ function uuuMenuSetBreadcrumbs(topLevel,botLevel)
 
   $("#top_level_nav").children('li').each(function(index)
   {
-    var text=$(this).get(0).firstChild.textContent;
+    //Overly complex way to get text (without child text)
+    var text=$(this).clone().children().remove().end().text();
 
     //Try to do regex match. We assume we don't need to escape text
     if( text.match(new RegExp("^\s*" + RegExp.escape(topLevel))) != null)
@@ -24,7 +25,8 @@ function uuuMenuSetBreadcrumbs(topLevel,botLevel)
       {
         $(this).find('li').each(function(index)
         {
-          var text=$(this).get(0).firstChild.textContent;
+          //Overly complex way to get text (without child text)
+          var text=$(this).clone().children().remove().end().text();
 
           //Try to do regex match. We assume we don't need to escape text
           if(text.match(new RegExp("^\s*" + RegExp.escape(botLevel))) != null)
