@@ -153,8 +153,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
 
 #content
 {
-  position: relative;
-  top:35px;
   margin: auto;
   color: black;
   max-width: 1024px;
