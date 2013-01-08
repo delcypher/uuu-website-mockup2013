@@ -83,6 +83,7 @@ nav li, nav a
 {
   color: white;
   text-decoration: none;
+  outline: 0;
 }
 
 /* share backgrounds so bar adapts to screen size */
