@@ -1,0 +1,20 @@
+/* Table-cell & table not supported use, floats instead */
+#top_level_nav li
+{
+  display: block;
+  float: left;
+}
+
+#top_level_nav, #top_level_nav ul
+{
+  display: block;
+}
+
+/* This is a horrible fragile hack
+the bottom bar doesn't seem to be in the right position
+so we set it absolutely.
+*/
+.bottom_level_nav
+{
+  top:205px;
+}
