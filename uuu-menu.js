@@ -10,28 +10,30 @@ function uuuMenuSetBreadcrumbs(topLevel,botLevel)
   if(typeof botLevel != "string" && botLevel != null)
     console.error("Second argument invalid");
 
+  var foundTop=false,foundBot=false;
+
   $("#top_level_nav").children('li').each(function(index)
   {
-    //Overly complex way to get text (without child text)
-    var text=$(this).clone().children().remove().end().text();
+    var text=$(this).text();
 
     //Try to do regex match. We assume we don't need to escape text
     if( text.match(new RegExp("^\s*" + RegExp.escape(topLevel))) != null)
     {
       //found top level match
       uuuMenuTopLevelSelect.call($(this),false);
+      foundTop=true;
 
       if(botLevel != null)
       {
         $(this).find('li').each(function(index)
         {
-          //Overly complex way to get text (without child text)
-          var text=$(this).clone().children().remove().end().text();
+          var text=$(this).text();
 
           //Try to do regex match. We assume we don't need to escape text
           if(text.match(new RegExp("^\s*" + RegExp.escape(botLevel))) != null)
           {
             uuuMenuBotLevelSelect.call($(this),false);
+            foundBot=true;
             return false; //Stop loop
           }
         });
@@ -40,6 +42,9 @@ function uuuMenuSetBreadcrumbs(topLevel,botLevel)
       return false; //Stop loop
     }
   });
+
+  if(!foundTop) console.error("Could not find top level menu element:" + topLevel);
+  if(!foundBot && botLevel != null) console.error("Could not find menu element: " + topLevel + " > " + botLevel);
 }
 
 /*
