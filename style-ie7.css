@@ -1,7 +1,6 @@
 /* Table-cell & table not supported use, floats instead */
 #top_level_nav li
 {
-  display: block;
   float: left;
 }
 
@@ -12,9 +11,16 @@
 
 /* This is a horrible fragile hack
 the bottom bar doesn't seem to be in the right position
-so we set it absolutely.
+so we move it down a bit.
 */
 .bottom_level_nav
 {
-  top:205px;
+  margin-top:27px; 
+}
+
+/* Can't get ul to centre because IE expands to fill.
+   This forces the width to be smaller */
+.bottom_level_nav > ul
+{
+  width:1024px;
 }
