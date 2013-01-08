@@ -41,6 +41,12 @@ p
   margin-right:5px;
 }
 
+/* IE: Hide borders around linked images */
+#social_container a img
+{
+  border: none;
+}
+
 
 #bottom_bar
 {
