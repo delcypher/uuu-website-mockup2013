@@ -184,7 +184,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   border-top-right-radius:10px;
 }
 
-.top_level_selected, .no_javascript #top_level_nav > li:hover
+.top_level_selected, .no-js #top_level_nav > li:hover
 {
   background: rgb(72,82,150); /* Old browsers */
   /* IE9 SVG, needs conditional override of 'filter' to 'none' */
@@ -214,7 +214,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   border-top-right-radius:10px;
 }
 
-.bot_level_selected, .no_javascript .bottom_level_nav > ul > li:hover
+.bot_level_selected, .no-js .bottom_level_nav > ul > li:hover
 {
   background: #0B0B61;
 }
@@ -236,7 +236,7 @@ footer
 }
 
 /* This makes the menu sort of work when javascript is disabled */
-nav.no_javascript > ul > li:hover div.bottom_level_nav
+.no-js nav > ul > li:hover div.bottom_level_nav
 {
   display:block;
 }

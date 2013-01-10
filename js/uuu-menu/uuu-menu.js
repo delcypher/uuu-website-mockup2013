@@ -173,7 +173,7 @@ $(document).ready(function()
   /* Javascript is working so remove the special CSS
      class that makes the menu "sort of work" in browsers
      with Javascript disabled */
-  $("nav").removeClass("no_javascript");
+  $("html").removeClass("no-js");
 
   /* Show correct pointer for the javascript menu */
   $("#top_level_nav li").addClass('clickable_button');
