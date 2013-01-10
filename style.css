@@ -273,10 +273,3 @@ so we move it down a bit.
 {
   margin-top:27px; 
 }
-
-/* Can't get ul to centre because IE expands to fill.
-   This forces the width to be smaller */
-.lte-ie7 .bottom_level_nav > ul
-{
-  width:1024px;
-}

@@ -79,6 +79,21 @@ function uuuMenuTopLevelSelect(followURL)
         window.location = $(this).children('a').attr('href');
       }
 
+      /* Hack for IE7 and IE6. We're using floats instead and so parent <ul>
+       * gets a zero width causing its floated children to butt up against 
+       * the <ul>'s parent <div> which essentially means the bottom bar menu
+       * buttons are not centred. This hack works out the sum of
+       * the width of the <ul>'s children and then sets the <ul> 
+       * to have that width. The <ul> is then positioned properly (by margin: auto)
+       * and the floats position themselves as intended.
+       *
+       * The hack must be applied here because the width of the <li>s are zero
+       * when hidden, so we can only perform the correct calculation when the <li>s
+       * are visible.
+       *
+      */
+      if( $('html').hasClass('lte-ie7') ) uuuMenuIEHack.call(this);
+
     }
     else
     {
@@ -99,6 +114,20 @@ function uuuMenuTopLevelSelect(followURL)
     }
   }
   );
+}
+
+/* this must be set to the parent li in the top level menu */
+function uuuMenuIEHack()
+{
+  var totalWidth=0;
+  $(this).find('div.bottom_level_nav > ul > li').each(function()
+  {
+    totalWidth+=$(this).outerWidth(true);
+  }
+  );
+
+  //Now set this ul to have to total width of the child elements
+  $(this).find('div.bottom_level_nav > ul').css('width',totalWidth);
 }
 
 /*
