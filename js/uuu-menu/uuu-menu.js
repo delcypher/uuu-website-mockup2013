@@ -170,4 +170,12 @@ $(document).ready(function()
     event.stopImmediatePropagation();
   });
 
+  /* Javascript is working so remove the special CSS
+     class that makes the menu "sort of work" in browsers
+     with Javascript disabled */
+  $("nav").removeClass("no_javascript");
+
+  /* Show correct pointer for the javascript menu */
+  $("#top_level_nav li").addClass('clickable_button');
+
 });
