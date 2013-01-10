@@ -20,7 +20,7 @@ function uuuMenuSetBreadcrumbs(topLevel,botLevel)
     if( text.match(new RegExp("^\s*" + RegExp.escape(topLevel))) != null)
     {
       //found top level match
-      uuuMenuTopLevelSelect.call($(this),false);
+      uuuMenuTopLevelSelect.call(this,false);
       foundTop=true;
 
       if(botLevel != null)
@@ -32,7 +32,7 @@ function uuuMenuSetBreadcrumbs(topLevel,botLevel)
           //Try to do regex match. We assume we don't need to escape text
           if(text.match(new RegExp("^\s*" + RegExp.escape(botLevel))) != null)
           {
-            uuuMenuBotLevelSelect.call($(this),false);
+            uuuMenuBotLevelSelect.call(this,false);
             foundBot=true;
             return false; //Stop loop
           }
@@ -155,13 +155,13 @@ $(document).ready(function()
   $('#top_level_nav > li').click(function()
   {
     //Set this and request that we follow URLs
-    uuuMenuTopLevelSelect.call($(this),true);
+    uuuMenuTopLevelSelect.call(this,true);
   });
 
   $('#top_level_nav > li > div.bottom_level_nav > ul > li').click(function(event)
   {
     //Set this and request that we follow URLs
-    uuuMenuBotLevelSelect.call($(this),true);
+    uuuMenuBotLevelSelect.call(this,true);
     /* Due to the nesting of menu elements the top level nav click can be triggered
       by clicking on bottom level menu elements. We don't want this so we try to 
       stop the event being propogated and ASSUME that the most nested event (i.e. this one)
