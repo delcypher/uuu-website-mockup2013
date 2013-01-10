@@ -178,7 +178,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   text-decoration: none;
 }
 
-.top_level_selected, #top_level_nav > li:hover
+.top_level_selected, #top_level_nav > li:hover ,
+.bot_level_selected, .bottom_level_nav > ul > li:hover
 {
   border-top-left-radius:10px;
   border-top-right-radius:10px;
@@ -208,11 +209,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', end
   background: #4A7FB3;
 }
 
-.bot_level_selected, .bottom_level_nav > ul > li:hover
-{
-  border-top-left-radius:10px;
-  border-top-right-radius:10px;
-}
 
 .bot_level_selected, .no-js .bottom_level_nav > ul > li:hover
 {
