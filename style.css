@@ -251,3 +251,32 @@ footer
 {
   display:block;
 }
+
+/* Below are the IE7,IE6 hacks --yuck! */
+
+/* Table-cell & table not supported use, floats instead */
+.lte-ie7 #top_level_nav li
+{
+  float: left;
+}
+
+.lte-ie7 #top_level_nav, .lte-ie7 #top_level_nav ul
+{
+  display: block;
+}
+
+/* This is a horrible fragile hack.
+The bottom bar doesn't seem to be in the right position
+so we move it down a bit.
+*/
+.lte-ie7 .bottom_level_nav
+{
+  margin-top:27px; 
+}
+
+/* Can't get ul to centre because IE expands to fill.
+   This forces the width to be smaller */
+.lte-ie7 .bottom_level_nav > ul
+{
+  width:1024px;
+}
