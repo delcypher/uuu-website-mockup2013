@@ -207,4 +207,13 @@ $(document).ready(function()
   /* Show correct pointer for the javascript menu */
   $("#top_level_nav li").addClass('clickable_button');
 
+  /* IE6/7 doesn't respect CSS property
+  * outline: none; This hack hides the outline on links
+  * in the menu
+  */
+  if($("html").hasClass("lte-ie7"))
+  {
+    $("#top_level_nav a").attr("hideFocus","true");
+  }
+
 });
